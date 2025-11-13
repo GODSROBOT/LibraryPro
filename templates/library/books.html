@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library - Browse Books</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/library.css">
+</head>
+
+<body>
+    <!-- Netflix-style Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark library-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fa-regular fa-bookmark" style="color: #FFD43B;"></i>Library
+            </a>
+
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search books, authors, categories...">
+            </div>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/dashboard">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a class="nav-link" href="/users/profile">
+                    <i class="fas fa-user"></i> Profile
+                </a>
+                <a class="nav-link active" href="/library">
+                    <i class="fas fa-book"></i> Library
+                </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/login" onclick="performLogout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Featured Banner -->
+        <div class="featured-banner glass-card">
+            <div class="banner-overlay"></div>
+            <div class="banner-content">
+                <h1 id="featuredTitle">Discover Your Next Favorite Book</h1>
+                <p id="featuredSubtitle">Thousands of titles waiting for you</p>
+                <div class="banner-info">
+                    <span><i class="fas fa-star"></i> Curated Collection</span>
+                    <span><i class="fas fa-clock"></i> Available 24/7</span>
+                    <span><i class="fas fa-users"></i> Community Loved</span>
+                </div>
+                <button class="btn-play">
+                    <i class="fas fa-play"></i> Explore Now
+                </button>
+            </div>
+        </div>
+
+        <!-- Library Controls -->
+        <div class="library-controls glass-card">
+            <div class="control-group">
+                <h6><i class="fas fa-filter"></i> Categories</h6>
+                <div class="filter-chips">
+                    <div class="chip active">All</div>
+                    <div class="chip">Fiction</div>
+                    <div class="chip">Science</div>
+                    <div class="chip">Technology</div>
+                    <div class="chip">History</div>
+                </div>
+            </div>
+            <div class="control-group">
+                <h6><i class="fas fa-sort"></i> Sort By</h6>
+                <select id="sortSelect" class="form-select">
+                    <option value="popular">Popularity</option>
+                    <option value="newest">Newest First</option>
+                    <option value="rating">Rating</option>
+                    <option value="title_az">Title A-Z</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Books Sections -->
+        <div class="library-sections">
+            <div class="books-section">
+                <h3><i class="fas fa-fire"></i> Popular Now</h3>
+                <div class="books-carousel glass-card">
+                    <div id="booksGrid" class="books-grid">
+                        <!-- Books will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Book Modal -->
+        <div id="bookModal" class="book-modal">
+            <div class="modal-content">
+                <button class="close-btn">&times;</button>
+                <div class="modal-body">
+                    <!-- Book Cover at Top -->
+                    <div class="book-cover-large">
+                        <i class="fas fa-book"></i>
+                    </div>
+
+                    <!-- Book Details Below -->
+                    <div class="book-details">
+                        <h2>Book Title</h2>
+                        <p class="author-name">by Author Name</p>
+
+                        <div class="rating-section">
+                            <span class="rating"><span class="rating-value">4.5</span> <i
+                                    class="fas fa-star"></i></span>
+                            <span class="reviews">(0 reviews)</span>
+                        </div>
+
+                        <p class="description">Book description will appear here...</p>
+
+                        <div class="book-meta">
+                            <div class="meta-item">
+                                <span>Category</span>
+                                <strong>Fiction</strong>
+                            </div>
+                            <div class="meta-item">
+                                <span>Price</span>
+                                <strong>$0.00</strong>
+                            </div>
+                            <div class="meta-item">
+                                <span>Available</span>
+                                <strong>0 copies</strong>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button class="btn-borrow">
+                                <i class="fas fa-book-open"></i> Borrow Now
+                            </button>
+                            <button class="btn-wishlist">
+                                <i class="fas fa-heart"></i> Add to Wishlist
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/library-api.js"></script>
+    <script src="/static/js/simple-books.js"></script>
+    <script>
+        // Debug script
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOM loaded');
+            console.log('CSS loaded:', !!document.styleSheets[0]);
+            console.log('Books grid found:', !!document.getElementById('booksGrid'));
+        });
+    </script>
+</body>
+
+</html>

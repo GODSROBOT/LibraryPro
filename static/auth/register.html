@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library - Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/auth.css">
+</head>
+
+<body>
+    <!-- Animated Particle Background -->
+    <div class="particles-container" id="particles"></div>
+    <div class="bg-overlay"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark transparent-navbar" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <h2><i class="fa-regular fa-bookmark" style="color: #FFD43B;"></i> Library</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Auth Container -->
+    <div class="auth-wrapper">
+        <div class="auth-container glass-card floating">
+            <div class="auth-header">
+                <h1>Create Account</h1>
+                <p>Join thousands of readers worldwide</p>
+            </div>
+
+            <form id="registerForm" class="auth-form">
+                <!-- Full Name -->
+                <div class="form-group mb-4">
+                    <label for="fullname" class="form-label">
+                        <i class="fas fa-user"></i> Full Name
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="text" class="form-control glass-input" id="fullname" placeholder="John Doe"
+                            required>
+                        <div class="input-focus-line"></div>
+                    </div>
+                </div>
+
+                <!-- Email Input -->
+                <div class="form-group mb-4">
+                    <label for="email" class="form-label">
+                        <i class="fas fa-envelope"></i> Email Address
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="email" class="form-control glass-input" id="email" placeholder="your@email.com"
+                            required>
+                        <div class="input-focus-line"></div>
+                    </div>
+                </div>
+
+                <!-- Phone Input -->
+                <div class="form-group mb-4">
+                    <label for="phone" class="form-label">
+                        <i class="fas fa-phone"></i> Phone Number
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="phone" class="form-control glass-input" id="phone" placeholder="123-456-7890"
+                            required>
+                        <div class="input-focus-line"></div>
+                    </div>
+                </div>
+
+                <!-- Password Input -->
+                <div class="form-group mb-4">
+                    <label for="password" class="form-label">
+                        <i class="fas fa-lock"></i> Password
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="password" class="form-control glass-input" id="password"
+                            placeholder="Create a strong password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <div class="input-focus-line"></div>
+                    </div>
+                    <div class="password-strength mt-2">
+                        <div class="strength-bar"></div>
+                        <small class="strength-text">Password strength indicator</small>
+                    </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group mb-4">
+                    <label for="confirm-password" class="form-label">
+                        <i class="fas fa-check-circle"></i> Confirm Password
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="password" class="form-control glass-input" id="confirm-password"
+                            placeholder="Confirm your password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('confirm-password')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <div class="input-focus-line"></div>
+                    </div>
+                </div>
+
+                <!-- Location Section -->
+                <div class="location-section mb-3">
+                    <h6 class="section-title">
+                        <i class="fas fa-map-marker-alt"></i> Location Information (Optional)
+                    </h6>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="country" class="form-label">Country</label>
+                            <div class="input-wrapper">
+                                <input type="text" class="form-control glass-input" id="country"
+                                    placeholder="e.g., USA">
+                                <div class="input-focus-line"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="state" class="form-label">State/Region</label>
+                            <div class="input-wrapper">
+                                <input type="text" class="form-control glass-input" id="state"
+                                    placeholder="e.g., California">
+                                <div class="input-focus-line"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="city" class="form-label">City</label>
+                            <div class="input-wrapper">
+                                <input type="text" class="form-control glass-input" id="city"
+                                    placeholder="e.g., Los Angeles">
+                                <div class="input-focus-line"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="postal_code" class="form-label">Postal Code</label>
+                            <div class="input-wrapper">
+                                <input type="text" class="form-control glass-input" id="postal_code"
+                                    placeholder="e.g., 90001">
+                                <div class="input-focus-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terms & Conditions -->
+                <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" id="terms" required>
+                    <label class="form-check-label" for="terms">
+                        I agree to the <a href="#terms" class="text-link">Terms & Conditions</a> and <a href="#privacy"
+                            class="text-link">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <!-- Register Button -->
+                <button type="submit" class="btn btn-login w-100">
+                    <span>Create Account</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <!-- Footer -->
+            <div class="auth-footer">
+                <p>Already have an account? <a href="/static/auth/login.html" class="auth-link">Sign in here</a></p>
+            </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="glow-sphere glow-1"></div>
+        <div class="glow-sphere glow-2"></div>
+        <div class="glow-sphere glow-3"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/animations.js"></script>
+    <script src="/static/js/library-api.js"></script>
+    <script src="/static/js/auth.js" defer></script>
+</body>
+
+</html>

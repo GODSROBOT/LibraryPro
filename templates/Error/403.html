@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 - Access Forbidden | Digital Library</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstapi.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Error Pages CSS -->
+    <link rel="stylesheet" href="/static/css/error-pages.css">
+</head>
+<body>
+    <!-- Particles Container -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <!-- Main Content -->
+    <div class="error-container error-403">
+        <div class="error-wrapper">
+            <!-- Error Code with Animation -->
+            <div class="error-code-container">
+                <h1 class="error-code" data-code="403">403</h1>
+                <div class="error-code-shadow">403</div>
+            </div>
+
+            <!-- Error Message -->
+            <div class="error-content">
+                <h2 class="error-title">Access Forbidden</h2>
+                <p class="error-message">
+                    You don't have permission to access this resource. 
+                    If you believe this is a mistake, please contact our support team.
+                </p>
+
+                <!-- Error Icon -->
+                <div class="error-icon error-icon-403">
+                    <i class="fas fa-lock"></i>
+                </div>
+
+                <!-- Access Requirements -->
+                <div class="access-requirements">
+                    <p class="requirement-label">This page may require:</p>
+                    <ul class="requirement-list">
+                        <li><i class="fas fa-check"></i> Valid login credentials</li>
+                        <li><i class="fas fa-credit-card"></i> Active subscription</li>
+                        <li><i class="fas fa-shield-alt"></i> Admin privileges</li>
+                        <li><i class="fas fa-clock"></i> Proper authorization</li>
+                    </ul>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="error-actions">
+                    <a href="/admin/login" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> Admin Login
+                    </a>
+                    <a href="/" class="btn btn-secondary">
+                        <i class="fas fa-home"></i> Go Home
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+            <div class="float-book"></div>
+            <div class="float-circle"></div>
+            <div class="float-square"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/error-pages.js"></script>
+</body>
+</html>

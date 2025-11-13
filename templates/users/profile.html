@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Library - My Profile</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="/static/css/user-profile.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark dashboard-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <i class="fa-regular fa-bookmark" style="color: #FFD43B;"></i> Library
+      </a>
+      <div class="navbar-center">
+        <span class="welcome-text">Welcome, <strong id="userName">User</strong></span>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">
+              <i class="fas fa-th-large"></i> Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/users/profile">
+              <i class="fas fa-user"></i> Profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/library/books">
+              <i class="fas fa-book"></i> library
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/login" onclick="performLogout()">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="profile-container">
+    <div class="container-fluid">
+      <div class="profile-header glass-card floating">
+        <div class="profile-content">
+          <div class="profile-picture-wrapper">
+            <div class="profile-picture">
+              <i class="fas fa-user"></i>
+            </div>
+            <button class="btn-upload-pic">
+              <i class="fas fa-camera"></i>
+            </button>
+          </div>
+
+          <div class="profile-info">
+            <h2 id="profileName">John Doe</h2>
+            <p class="profile-email" id="profileEmail">johndoe@example.com</p>
+            <div class="profile-meta">
+              <span class="meta-item"><i class="fas fa-badge"></i> Member since 2023</span>
+              <span class="meta-item"><i class="fas fa-star"></i> ★★★★★</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row g-4 mt-4">
+        <div class="col-lg-6">
+          <div class="detail-card glass-card floating">
+            <div class="card-header-custom">
+              <h5 class="card-title"><i class="fas fa-user-circle"></i> Personal Information</h5>
+              <button class="btn-icon-small" id="editPersonalBtn" onclick="toggleEditPersonal()" title="Edit personal info">
+                <i class="fas fa-edit"></i>
+              </button>
+            </div>
+            
+            <!-- View Mode -->
+            <div id="personalViewMode">
+              <div class="detail-row"><span class="detail-label">Full Name</span><span class="detail-value" id="detailName">John Doe</span></div>
+              <div class="detail-row"><span class="detail-label">Email Address</span><span class="detail-value" id="detailEmail">johndoe@example.com</span></div>
+              <div class="detail-row"><span class="detail-label">Phone Number</span><span class="detail-value" id="detailPhone">—</span></div>
+              <div class="detail-row"><span class="detail-label">Address</span><span class="detail-value" id="detailAddress">—</span></div>
+            </div>
+            
+            <!-- Edit Mode -->
+            <div id="personalEditMode" style="display: none;">
+              <div class="edit-row">
+                <label class="edit-label">Full Name</label>
+                <input type="text" class="edit-input" id="editName" placeholder="Your full name">
+              </div>
+              <div class="edit-row">
+                <label class="edit-label">Phone Number</label>
+                <input type="tel" class="edit-input" id="editPhone" placeholder="+1 (555) 000-0000">
+              </div>
+              <div class="edit-row">
+                <label class="edit-label">Address</label>
+                <textarea class="edit-input" id="editAddress" rows="2" placeholder="Your full address"></textarea>
+              </div>
+              <div class="edit-actions">
+                <button class="btn-cancel" onclick="cancelEditPersonal()">Cancel</button>
+                <button class="btn-save" onclick="savePersonalInfo()">Save Changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="detail-card glass-card floating">
+            <div class="card-header-custom">
+              <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> Location</h5>
+              <button class="btn-icon-small" id="editLocationBtn" onclick="toggleEditLocation()" title="Edit location">
+                <i class="fas fa-edit"></i>
+              </button>
+            </div>
+            
+            <!-- View Mode -->
+            <div id="locationViewMode">
+              <div class="detail-row"><span class="detail-label">Country</span><span class="detail-value" id="detailCountry">—</span></div>
+              <div class="detail-row"><span class="detail-label">State/Region</span><span class="detail-value" id="detailState">—</span></div>
+              <div class="detail-row"><span class="detail-label">City</span><span class="detail-value" id="detailCity">—</span></div>
+              <div class="detail-row"><span class="detail-label">Postal Code</span><span class="detail-value" id="detailPostal">—</span></div>
+            </div>
+            
+            <!-- Edit Mode -->
+            <div id="locationEditMode" style="display: none;">
+              <div class="edit-row">
+                <label class="edit-label">Country</label>
+                <input type="text" class="edit-input" id="editCountry" placeholder="e.g., USA">
+              </div>
+              <div class="edit-row">
+                <label class="edit-label">State/Region</label>
+                <input type="text" class="edit-input" id="editState" placeholder="e.g., California">
+              </div>
+              <div class="edit-row">
+                <label class="edit-label">City</label>
+                <input type="text" class="edit-input" id="editCity" placeholder="e.g., Los Angeles">
+              </div>
+              <div class="edit-row">
+                <label class="edit-label">Postal Code</label>
+                <input type="text" class="edit-input" id="editPostal" placeholder="e.g., 90001">
+              </div>
+              <div class="edit-actions">
+                <button class="btn-cancel" onclick="cancelEditLocation()">Cancel</button>
+                <button class="btn-save" onclick="saveLocationInfo()">Save Changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-2">
+        <div class="col-lg-6">
+          <div class="stats-card glass-card floating">
+            <h5 class="card-title"><i class="fa-regular fa-bookmark" style="color: #FFD43B;"></i> Books Activity</h5>
+            <div class="stat-item">
+              <div class="stat-header"><span>Total Books Borrowed</span><span class="stat-value-big"
+                  id="totalBorrowed">12</span></div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-header"><span>Books Returned</span><span class="stat-value-big"
+                  id="totalReturned">10</span></div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-header"><span>Currently Borrowed</span><span class="stat-value-big text-warning"
+                  id="currentBorrowed">2</span></div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-header"><span>Overdue Books</span><span class="stat-value-big text-danger"
+                  id="overdueBooks">0</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-lg-6">
+          <div class="subscription-details glass-card floating">
+            <h5 class="card-title"><i class="fas fa-crown"></i> Subscription Details</h5>
+            <div class="sub-item"><span class="sub-label">Current Plan</span><span
+                class="badge badge-premium">Premium</span></div>
+            <div class="sub-item"><span class="sub-label">Status</span><span class="status-badge active"><i
+                  class="fas fa-check-circle"></i> Active</span></div>
+            <div class="sub-item"><span class="sub-label">Subscription Date</span><span>2023-08-01</span></div>
+            <div class="sub-item"><span class="sub-label">Renewal Date</span><span>2024-08-01</span></div>
+            <div class="sub-item"><span class="sub-label">Books Limit</span><span>50</span></div>
+            <div class="sub-item"><span class="sub-label">Download Allowed</span><span
+                class="badge badge-success">Yes</span></div>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- <div class="row g-4 mt-2">
+        <div class="col-12">
+          <div class="genres-card glass-card floating">
+            <h5 class="card-title"><i class="fas fa-tags"></i> Favorite Genres</h5>
+            <div class="genres-list">
+              <span class="genre-tag"><i class="fas fa-bookmark"></i> Science Fiction</span>
+              <span class="genre-tag"><i class="fas fa-bookmark"></i> Mystery</span>
+              <span class="genre-tag"><i class="fas fa-bookmark"></i> Thriller</span>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="row g-4 mt-2 mb-4">
+        <div class="col-md-4">
+          <div class="account-stat glass-card floating">
+            <div class="stat-icon"><i class="fas fa-award"></i></div>
+            <p>Member Since</p>
+            <h6>2023</h6>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="account-stat glass-card floating">
+            <div class="stat-icon"><i class="fas fa-fire"></i></div>
+            <p>Reading Streak</p>
+            <h6>14 Days</h6>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="account-stat glass-card floating">
+            <div class="stat-icon"><i class="fas fa-clock"></i></div>
+            <p>Total Reading Time</p>
+            <h6>35 Hours</h6>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/animations.js"></script>
+  <script src="/static/js/library-api.js"></script>
+  <script src="/static/js/user-profile.js"></script>
+</body>
+
+</html>

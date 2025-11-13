@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>405 - Method Not Allowed | Digital Library</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstapi.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Error Pages CSS -->
+    <link rel="stylesheet" href="/static/css/error-pages.css">
+</head>
+<body>
+    <!-- Particles Container -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <!-- Main Content -->
+    <div class="error-container error-405">
+        <div class="error-wrapper">
+            <!-- Error Code with Animation -->
+            <div class="error-code-container">
+                <h1 class="error-code" data-code="405">405</h1>
+                <div class="error-code-shadow">405</div>
+            </div>
+
+            <!-- Error Message -->
+            <div class="error-content">
+                <h2 class="error-title">Method Not Allowed</h2>
+                <p class="error-message">
+                    The HTTP method used to request this resource is not allowed.
+                    Please use the correct method or contact our support team for assistance.
+                </p>
+
+                <!-- Error Icon -->
+                <div class="error-icon error-icon-405">
+                    <i class="fas fa-ban"></i>
+                </div>
+
+                <!-- Method Information -->
+                <div class="method-info">
+                    <p class="info-label">Common Issues:</p>
+                    <ul class="info-list">
+                        <li><i class="fas fa-times"></i> Using POST on GET-only endpoint</li>
+                        <li><i class="fas fa-times"></i> Using DELETE on read-only resource</li>
+                        <li><i class="fas fa-times"></i> Incorrect HTTP method</li>
+                        <li><i class="fas fa-times"></i> API endpoint misconfiguration</li>
+                    </ul>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="error-actions">
+                    <a href="index.html" class="btn btn-primary">
+                        <i class="fas fa-home"></i> Go to Homepage
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-question-circle"></i> Get Help
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+            <div class="float-book"></div>
+            <div class="float-circle"></div>
+            <div class="float-square"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/error-pages.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>401 - Unauthorized | Digital Library</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstapi.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Error Pages CSS -->
+    <link rel="stylesheet" href="/static/css/error-pages.css">
+</head>
+<body>
+    <!-- Particles Container -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <!-- Main Content -->
+    <div class="error-container error-401">
+        <div class="error-wrapper">
+            <!-- Error Code with Animation -->
+            <div class="error-code-container">
+                <h1 class="error-code" data-code="401">401</h1>
+                <div class="error-code-shadow">401</div>
+            </div>
+
+            <!-- Error Message -->
+            <div class="error-content">
+                <h2 class="error-title">Unauthorized Access</h2>
+                <p class="error-message">
+                    Authentication is required to access this resource.
+                    Please log in with your credentials to continue.
+                </p>
+
+                <!-- Error Icon -->
+                <div class="error-icon error-icon-401">
+                    <i class="fas fa-user-slash"></i>
+                </div>
+
+                <!-- Authentication Info -->
+                <div class="auth-info">
+                    <p class="info-label">To access this resource:</p>
+                    <ul class="info-list">
+                        <li><i class="fas fa-sign-in-alt"></i> Log in with your account</li>
+                        <li><i class="fas fa-user-plus"></i> Create a new account if needed</li>
+                        <li><i class="fas fa-key"></i> Use valid credentials</li>
+                        <li><i class="fas fa-question-circle"></i> Reset password if forgotten</li>
+                    </ul>
+                </div>
+
+                <!-- Session Expired Info -->
+                <div class="session-info">
+                    <p class="session-label"><i class="fas fa-info-circle"></i> Session Information</p>
+                    <p class="session-text">Your session may have expired. Please log in again to continue.</p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="error-actions">
+                    <a href="admin-login-enhanced.html" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> Log In Now
+                    </a>
+                    <a href="admin-signup.html" class="btn btn-secondary">
+                        <i class="fas fa-user-plus"></i> Create Account
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+            <div class="float-book"></div>
+            <div class="float-circle"></div>
+            <div class="float-square"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/error-pages.js"></script>
+</body>
+</html>

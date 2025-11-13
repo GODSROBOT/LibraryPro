@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500 - Server Error | Digital Library</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstapi.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Error Pages CSS -->
+    <link rel="stylesheet" href="/static/css/error-pages.css">
+</head>
+<body>
+    <!-- Particles Container -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <!-- Main Content -->
+    <div class="error-container error-500">
+        <div class="error-wrapper">
+            <!-- Error Code with Animation -->
+            <div class="error-code-container">
+                <h1 class="error-code" data-code="500">500</h1>
+                <div class="error-code-shadow">500</div>
+            </div>
+
+            <!-- Error Message -->
+            <div class="error-content">
+                <h2 class="error-title">Server Error</h2>
+                <p class="error-message">
+                    Something went wrong on our end. Our team has been notified and is working to fix it.
+                    Please try again later or contact our support team.
+                </p>
+
+                <!-- Error Icon -->
+                <div class="error-icon error-icon-500">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+
+                <!-- Error Details -->
+                <div class="error-details">
+                    <p class="detail-label">Error Details:</p>
+                    <div class="detail-box">
+                        <p><strong>Error Code:</strong> 500 Internal Server Error</p>
+                        <p><strong>Status:</strong> <span class="status-indicator">Processing</span></p>
+                        <p><strong>Support:</strong> support@digitallibrary.com</p>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="error-actions">
+                    <a href="/static/index.html" class="btn btn-primary">
+                        <i class="fas fa-home"></i> Go to Homepage
+                    </a>
+                    <a href="/static/contact.html" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Contact Support
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+            <div class="float-book"></div>
+            <div class="float-circle"></div>
+            <div class="float-square"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/error-pages.js"></script>
+</body>
+</html>

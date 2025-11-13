@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance - Digital Library</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstapi.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Error Pages CSS -->
+    <link rel="stylesheet" href="/static/css/error-pages.css">
+</head>
+<body>
+    <!-- Particles Container -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <!-- Main Content -->
+    <div class="error-container maintenance-container">
+        <div class="error-wrapper">
+            <!-- Maintenance Animation -->
+            <div class="maintenance-icon">
+                <i class="fas fa-tools"></i>
+            </div>
+
+            <!-- Message -->
+            <div class="error-content">
+                <h2 class="error-title">We're Under Maintenance</h2>
+                <p class="error-message">
+                    We're currently performing scheduled maintenance to improve your experience.
+                    We'll be back online shortly. Thank you for your patience!
+                </p>
+
+                <!-- Status -->
+                <div class="maintenance-status">
+                    <p class="status-label">Estimated Time:</p>
+                    <p class="status-time">45 minutes</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <!-- Updates -->
+                <div class="maintenance-updates">
+                    <p class="update-label">Improvements Coming:</p>
+                    <ul class="update-list">
+                        <li><i class="fas fa-check"></i> Performance enhancements</li>
+                        <li><i class="fas fa-check"></i> New features</li>
+                        <li><i class="fas fa-check"></i> Security updates</li>
+                        <li><i class="fas fa-check"></i> Bug fixes</li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="maintenance-contact">
+                    <p>For updates, follow us on <strong>info@digitallibrary.com</strong></p>
+                </div>
+
+                <!-- Action Button -->
+                <div class="error-actions maintenance-actions">
+                    <a href="javascript:location.reload()" class="btn btn-primary">
+                        <i class="fas fa-refresh"></i> Refresh Page
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+            <div class="float-book"></div>
+            <div class="float-circle"></div>
+            <div class="float-square"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/error-pages.js"></script>
+</body>
+</html>

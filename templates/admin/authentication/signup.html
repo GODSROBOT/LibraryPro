@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Sign Up - Digital Library</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Admin Signup CSS -->
+    <link rel="stylesheet" href="/static/css/admin-signup.css">
+</head>
+<body>
+
+    <!-- Security Watermark -->
+    <div class="security-watermark">
+        <i class="fas fa-shield-alt"></i>
+    </div>
+
+    <!-- Admin Signup Disabled -->
+    <div class="admin-signup-wrapper" style="padding:60px; display:flex; align-items:center; justify-content:center;">
+        <div class="admin-signup-container" style="max-width:720px; text-align:center;">
+            <div class="admin-header">
+                <div class="admin-logo" style="font-size:48px; color:#0b5cff;">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h1>Admin Signup Disabled</h1>
+                <p>For security, creating admin accounts from the public UI is disabled.</p>
+            </div>
+            <div style="margin-top:20px; text-align:left;">
+                <p>If you need to create an admin account, run the management script on the server:</p>
+                <pre style="background:#f4f6f8;padding:12px;border-radius:6px;border:1px solid #e2e8f0;">python scripts/create_admin.py --email admin@example.com --name "Admin Name"</pre>
+                <p>After creating an admin, use the <a href="/admin/login">Admin Login</a> page.</p>
+                <p style="color:#6b7280;">If you need a hosted email reset flow or automated onboarding, I can integrate an email sender next.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

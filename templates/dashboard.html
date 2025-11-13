@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/user-dashboard.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark library-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fa-regular fa-bookmark" style="color: #FFD43B;"></i>Library
+            </a>
+            <div class="navbar-center">
+                <span class="welcome-text">Welcome, <strong id="userName">User</strong></span>
+            </div>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/dashboard">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a class="nav-link" href="/users/profile">
+                    <i class="fas fa-user"></i> Profile
+                </a>
+                <a class="nav-link active" href="/library">
+                    <i class="fas fa-book"></i> Library
+                </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/login" onclick="performLogout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <div class="container-fluid">
+            <!-- Header -->
+            <div class="dashboard-header">
+                <h1>Your Dashboard</h1>
+                <p>Overview of your library activity and subscriptions</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-3 col-6">
+                    <div class="stat-card glass-card floating">
+                        <div class="stat-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h6>Currently Borrowed</h6>
+                            <p class="stat-number" id="booksBorrowed">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card glass-card floating" style="animation-delay: 0.1s">
+                        <div class="stat-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h6>Books Returned</h6>
+                            <p class="stat-number" id="booksReturned">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card glass-card floating" style="animation-delay: 0.2s">
+                        <div class="stat-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h6>Reading Streak</h6>
+                            <p class="stat-number" id="readingStreak">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card glass-card floating" style="animation-delay: 0.3s">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h6>Rating</h6>
+                            <p class="stat-number" id="userRating">4.8</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="row g-4">
+        
+                <!-- Currently Reading -->
+                <div class="col-lg-8">
+                    <div class="currently-reading glass-card floating" style="animation-delay: 0.1s">
+                        <div class="section-header">
+                            <h5>Currently Borrowed</h5>
+                            <a href="/library/books" class="view-all">Browse More →</a>
+                        </div>
+                        <div class="reading-list" id="currentlyBorrowedList">
+                            <div class="reading-item">
+                                <div class="book-cover">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="reading-info">
+                                    <h6>Loading...</h6>
+                                    <p>Please wait</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="row g-4 mt-2">
+                <div class="col-lg-12">
+                    <div class="activity-card glass-card floating" style="animation-delay: 0.2s">
+                        <div class="section-header">
+                            <h5>Recent Activity</h5>
+                        </div>
+                        <div class="activity-list" id="recentActivityList">
+                            <div class="activity-item text-center" style="padding: 2rem;">
+                                <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: #666;"></i>
+                                <p style="color: #999; margin-top: 1rem;">Loading activity...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/library-api.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/user-dashboard.js') }}" defer></script>
+</body>
+</html>

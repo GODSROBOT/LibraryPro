@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+
+<body>
+    <!-- Animated Particle Background -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark transparent-navbar" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <h2><i class="fa-regular fa-bookmark" style="color: #FFD43B;"></i> Library</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item auth-buttons ms-3">
+                        <a href="/static/auth/login.html" class="btn btn-gradient-outline">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="animate-on-load">Welcome to the Future of Reading</h1>
+            <p class="lead animate-on-load">Our digital library offers a seamless way to explore, read and listen to
+                thousands of titles on any device. Learn, grow and get inspired — all in one place.</p>
+            <a href="pricing.html" id="startReading" class="btn btn-cta btn-gradient-outline animate-on-load">Start
+                Reading</a>
+            <div class="hero-card animate-on-load">
+                <span><i class="fas fa-book"></i> 50,000+ Books</span>
+                <span><i class="fas fa-users"></i> 1M+ Readers</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-title text-center">Why Choose Us</h2>
+            <p class="section-subtext text-center">Our platform empowers readers, students and dreamers worldwide.</p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="about-card glass-card floating" style="animation-delay: 0s">
+                        <div class="icon"><i class="fa-regular fa-bookmark" style="color: #FFD43B;"></i></div>
+                        <h5>Vast Collection</h5>
+                        <p>Dive into a vast collection spanning all genres and authors you love.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="about-card glass-card floating" style="animation-delay: 0.2s">
+                        <div class="icon"><i class="fas fa-magic"></i></div>
+                        <h5>Smart Recommendations</h5>
+                        <p>Personalized recommendations tailored to your reading taste and history.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="about-card glass-card floating" style="animation-delay: 0.4s">
+                        <div class="icon"><i class="fas fa-globe"></i></div>
+                        <h5>Global Community</h5>
+                        <p>Our platform empowers readers, students and dreamers worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title text-center">Amazing Features</h2>
+            <p class="section-subtext text-center">Everything you need for the perfect reading experience</p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-box glass-card floating" style="animation-delay: 0s">
+                        <div class="icon"><i class="fas fa-download"></i></div>
+                        <h6>Offline Reading</h6>
+                        <p>Download your favorites and enjoy them even without internet.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box glass-card floating" style="animation-delay: 0.2s">
+                        <div class="icon"><i class="fas fa-sync"></i></div>
+                        <h6>Cross-Device Sync</h6>
+                        <p>Start on one device and continue seamlessly on another.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box glass-card floating" style="animation-delay: 0.4s">
+                        <div class="icon"><i class="fas fa-share-alt"></i></div>
+                        <h6>Social Features</h6>
+                        <p>Share notes, reviews and reading lists with the community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title text-center">What Our Readers Say</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card glass-card floating" style="animation-delay: 0s">
+                        <p>"The best online reading experience — recommendations are always on point."</p>
+                        <h6>— Sarah M.</h6>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card glass-card floating" style="animation-delay: 0.2s">
+                        <p>"Perfect for commutes. Audiobooks keep me inspired every day."</p>
+                        <h6>— James K.</h6>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card glass-card floating" style="animation-delay: 0.4s">
+                        <p>"Beautifully designed. Amazing collection and clean UI."</p>
+                        <h6>— Alex P.</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5><i class="fas fa-book-open"></i> Digital Library</h5>
+                    <p class="mb-3">Your gateway to unlimited knowledge and endless stories.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6>Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h6>Support</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h6>Contact Info</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-envelope me-2"></i> support@digitallibrary.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> New York, NY 10001</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom text-center">
+                <p class="mb-0">&copy; 2024 Digital Library. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/animations.js"></script>
+    <script>
+        // Swap navbar auth button based on token presence
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                var authLi = document.querySelector('.auth-buttons');
+                if (!authLi) return;
+                var token = localStorage.getItem('authToken');
+                if (token) {
+                    authLi.innerHTML = '<a href="/library/books.html" class="btn btn-gradient-outline">Library</a>';
+                } else {
+                    authLi.innerHTML = '<a href="/static/auth/login.html" class="btn btn-gradient-outline">Login</a>';
+                }
+            } catch (e) { }
+        });
+
+        // Update "Start Reading" CTA to go to server-rendered library after login
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                var token = localStorage.getItem('authToken');
+                var cta = document.getElementById('startReading');
+                if (!cta) return;
+                if (token) {
+                    cta.setAttribute('href', '/books.html');
+                } else {
+                    // keep pricing for logged-out users
+                    cta.setAttribute('href', 'pricing.html');
+                }
+            } catch (e) { }
+        });
+    </script>
+</body>
+
+</html>

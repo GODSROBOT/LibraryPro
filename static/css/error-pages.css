@@ -1,0 +1,666 @@
+/* ===========================
+   Error Pages CSS
+   Matches Digital Library Theme
+   =========================== */
+
+:root {
+    --accent: #ffd000;
+    --accent-2: #FFC300;
+    --accent-3: #FFEA00;
+    --accent-4: #FFB81E;
+    --dark-bg: #000000;
+    --panel: rgba(255,255,255,0.03);
+    --muted: #ddd;
+    --muted-2: #bfc4c9;
+    --error-red: #ef4444;
+    --error-yellow: #f59e0b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    background: var(--dark-bg);
+    color: var(--muted);
+    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    overflow-x: hidden;
+}
+
+/* ===== Particles Container ===== */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: float-particle linear infinite;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+@keyframes float-particle {
+    0% {
+        transform: translateY(100vh) translateX(0) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.4;
+    }
+    90% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-100px) translateX(var(--drift)) scale(1);
+        opacity: 0;
+    }
+}
+
+/* ===== Error Container ===== */
+.error-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.error-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 208, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 208, 0, 0.1) 0%, transparent 50%);
+    animation: pulse-bg 8s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes pulse-bg {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.error-wrapper {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    animation: slideIn 0.8s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Error Code ===== */
+.error-code-container {
+    position: relative;
+    margin-bottom: 40px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-code {
+    font-size: 12rem;
+    font-weight: 900;
+    letter-spacing: -10px;
+    margin: 0;
+    background: linear-gradient(135deg, var(--accent), var(--accent-4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 50px rgba(255, 208, 0, 0.5);
+    animation: float 6s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.error-code-shadow {
+    position: absolute;
+    font-size: 12rem;
+    font-weight: 900;
+    letter-spacing: -10px;
+    color: rgba(255, 208, 0, 0.05);
+    z-index: 1;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+/* ===== Error Content ===== */
+.error-content {
+    position: relative;
+    z-index: 2;
+}
+
+.error-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px rgba(255, 208, 0, 0.3);
+}
+
+.error-message {
+    font-size: 1.1rem;
+    color: var(--muted-2);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== Error Icon ===== */
+.error-icon {
+    font-size: 4rem;
+    color: var(--accent);
+    margin-bottom: 30px;
+    animation: icon-bounce 2s ease-in-out infinite;
+    text-shadow: 0 0 30px rgba(255, 208, 0, 0.5);
+}
+
+.error-icon-401 {
+    color: #3b82f6 !important;
+}
+
+.error-icon-403 {
+    color: #ffa500;
+}
+
+.error-icon-500 {
+    color: var(--error-red);
+    animation: icon-shake 1s ease-in-out infinite;
+}
+
+.error-icon-405 {
+    color: #dc2626 !important;
+}
+
+@keyframes icon-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes icon-shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+/* ===== Suggestions Box ===== */
+.suggestions,
+.access-requirements,
+.error-details,
+.method-info,
+.auth-info {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 208, 0, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 30px auto;
+    max-width: 500px;
+    text-align: left;
+}
+
+.suggestion-label,
+.requirement-label,
+.detail-label,
+.info-label {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.suggestion-list,
+.requirement-list,
+.info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.suggestion-list li,
+.requirement-list li,
+.info-list li {
+    color: var(--muted);
+    padding: 10px 0;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 208, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.suggestion-list li:last-child,
+.requirement-list li:last-child,
+.info-list li:last-child {
+    border-bottom: none;
+}
+
+.suggestion-list i,
+.requirement-list i,
+.info-list i {
+    color: var(--accent);
+    width: 20px;
+    text-align: center;
+}
+
+.info-list i {
+    color: #3b82f6;
+}
+
+/* ===== Session Info ===== */
+.session-info {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.session-label {
+    color: #3b82f6;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.session-text {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ===== Error Details ===== */
+.detail-box {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    border-left: 3px solid var(--accent);
+}
+
+.detail-box p {
+    color: var(--muted);
+    margin: 8px 0;
+    font-size: 0.9rem;
+}
+
+.detail-box strong {
+    color: var(--accent);
+}
+
+.status-indicator {
+    color: var(--error-yellow);
+    font-weight: 600;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ===== Action Buttons ===== */
+.error-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent-4));
+    color: #000;
+    box-shadow: 0 4px 15px rgba(255, 208, 0, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 208, 0, 0.5);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.btn-secondary:hover {
+    background: var(--accent);
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* ===== Maintenance Page ===== */
+.maintenance-container .error-code-container {
+    display: none;
+}
+
+.maintenance-icon {
+    font-size: 5rem;
+    color: var(--accent);
+    margin-bottom: 30px;
+    animation: rotate 3s linear infinite;
+    text-shadow: 0 0 40px rgba(255, 208, 0, 0.5);
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.maintenance-status {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 208, 0, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 30px auto;
+    max-width: 500px;
+}
+
+.status-label {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.status-time {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 208, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-4));
+    border-radius: 10px;
+    animation: progress 3s ease-in-out infinite;
+}
+
+@keyframes progress {
+    0% { width: 0%; }
+    50% { width: 80%; }
+    100% { width: 100%; }
+}
+
+.maintenance-updates {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 208, 0, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 500px;
+    text-align: left;
+}
+
+.update-label {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.update-list {
+    list-style: none;
+    padding: 0;
+}
+
+.update-list li {
+    color: var(--muted);
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.update-list i {
+    color: #22c55e;
+}
+
+.maintenance-contact {
+    color: var(--muted-2);
+    margin: 30px 0;
+    font-size: 0.95rem;
+}
+
+.maintenance-contact strong {
+    color: var(--accent);
+}
+
+.maintenance-actions {
+    margin-top: 30px;
+}
+
+/* ===== Error Specific Colors ===== */
+.error-401 .error-title {
+    color: #2563eb;
+}
+
+.error-500 .error-title {
+    color: var(--error-red);
+}
+
+.error-405 .error-title {
+    color: #9f1239;
+}
+
+/* ===== Floating Elements ===== */
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.float-book,
+.float-circle,
+.float-square {
+    position: absolute;
+    opacity: 0.05;
+    animation: float-slow 20s ease-in-out infinite;
+}
+
+.float-book {
+    width: 100px;
+    height: 120px;
+    border: 2px solid var(--accent);
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+    border-radius: 5px;
+}
+
+.float-circle {
+    width: 150px;
+    height: 150px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    bottom: 10%;
+    right: 5%;
+    animation-delay: -5s;
+}
+
+.float-square {
+    width: 120px;
+    height: 120px;
+    border: 2px solid var(--accent);
+    top: 50%;
+    right: 10%;
+    animation-delay: -10s;
+    transform: rotate(45deg);
+}
+
+@keyframes float-slow {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(30px);
+    }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .error-code {
+        font-size: 6rem;
+    }
+
+    .error-code-shadow {
+        font-size: 6rem;
+    }
+
+    .error-title {
+        font-size: 1.8rem;
+    }
+
+    .error-message {
+        font-size: 0.95rem;
+    }
+
+    .error-icon {
+        font-size: 3rem;
+    }
+
+    .error-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .suggestions,
+    .access-requirements,
+    .error-details,
+    .method-info,
+    .auth-info,
+    .session-info,
+    .maintenance-status,
+    .maintenance-updates {
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .float-book,
+    .float-circle,
+    .float-square {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .error-code {
+        font-size: 4rem;
+    }
+
+    .error-code-shadow {
+        font-size: 4rem;
+    }
+
+    .error-title {
+        font-size: 1.5rem;
+    }
+
+    .error-message {
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+    .particles-container,
+    .floating-elements {
+        display: none;
+    }
+
+    .error-container::before {
+        display: none;
+    }
+}

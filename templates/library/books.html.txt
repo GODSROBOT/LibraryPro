@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library - Browse Books</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/library.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark library-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <i class="fa-regular fa-bookmark" style="color: #FFD43B;"></i> Library
+            </a>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search books, authors..." id="searchInput" onkeyup="filterBooks()">
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard.html">
+                            <i class="fas fa-th-large"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/profile">
+                            <i class="fas fa-user"></i> Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/library/books.html">
+                            <i class="fas fa-library"></i> Library
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/settings">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="performLogout()">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Library Container -->
+    <div class="library-container">
+        <!-- Featured Banner -->
+        <div class="featured-banner" id="featuredBanner">
+            <div class="banner-overlay"></div>
+            <div class="banner-content">
+                <h1 id="featuredTitle">The Great Gatsby</h1>
+                <p id="featuredAuthor">by F. Scott Fitzgerald</p>
+                <div class="banner-info">
+                    <span id="featuredRating">⭐ 4.8</span>
+                    <span id="featuredGenre">Fiction</span>
+                    <span id="featuredYear">1925</span>
+                </div>
+                <button class="btn btn-play" onclick="borrowFeaturedBook()">
+                    <i class="fas fa-book-reader"></i> Borrow Now
+                </button>
+            </div>
+        </div>
+
+        <!-- Filters & Sorting -->
+        <div class="library-controls glass-card">
+            <div class="control-group">
+                <h6>Genre</h6>
+                <div class="filter-chips">
+                    <button class="chip active" onclick="filterByGenre('all')">All</button>
+                    <button class="chip" onclick="filterByGenre('fiction')">Fiction</button>
+                    <button class="chip" onclick="filterByGenre('scifi')">Sci-Fi</button>
+                    <button class="chip" onclick="filterByGenre('mystery')">Mystery</button>
+                    <button class="chip" onclick="filterByGenre('biography')">Biography</button>
+                    <button class="chip" onclick="filterByGenre('history')">History</button>
+                </div>
+            </div>
+            <div class="control-group">
+                <h6>Sort By</h6>
+                <select class="form-select glass-input" onchange="sortBooks(this.value)">
+                    <option value="trending">Trending</option>
+                    <option value="newest">Newest</option>
+                    <option value="rating">Top Rated</option>
+                    <option value="popular">Most Popular</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Books Grid (Netflix-style) -->
+        <div class="library-sections">
+            <!-- Trending Now -->
+            <section class="books-section">
+                <h3><i class="fas fa-fire"></i> Trending Now</h3>
+                <div class="books-carousel glass-card floating">
+                    <div class="books-grid" id="trendingBooks">
+                        <!-- Books will be inserted here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Popular Picks -->
+            <section class="books-section">
+                <h3><i class="fas fa-star"></i> Popular Picks</h3>
+                <div class="books-carousel glass-card floating" style="animation-delay: 0.1s">
+                    <div class="books-grid" id="popularBooks">
+                        <!-- Books will be inserted here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- New Releases -->
+            <section class="books-section">
+                <h3><i class="fas fa-calendar-alt"></i> New Releases</h3>
+                <div class="books-carousel glass-card floating" style="animation-delay: 0.2s">
+                    <div class="books-grid" id="newBooks">
+                        <!-- Books will be inserted here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommended For You -->
+            <section class="books-section">
+                <h3><i class="fas fa-lightbulb"></i> Recommended For You</h3>
+                <div class="books-carousel glass-card floating" style="animation-delay: 0.3s">
+                    <div class="books-grid" id="recommendedBooks">
+                        <!-- Books will be inserted here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Book Detail Modal -->
+    <div class="book-modal" id="bookModal">
+        <div class="modal-content glass-card">
+            <button class="close-btn" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <div class="book-cover-large">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="book-info">
+                    <h2 id="modalTitle">Book Title</h2>
+                    <p id="modalAuthor">Author Name</p>
+                    <div class="rating-section">
+                        <span id="modalRating" class="rating">⭐ 4.8</span>
+                        <span id="modalReviews" class="reviews">(2,456 reviews)</span>
+                    </div>
+                    <p id="modalDescription" class="description">
+                        Book description goes here...
+                    </p>
+                    <div class="book-meta">
+                        <div class="meta-item">
+                            <span>Genre:</span>
+                            <strong id="modalGenre">Fiction</strong>
+                        </div>
+                        <div class="meta-item">
+                            <span>Year:</span>
+                            <strong id="modalYear">2024</strong>
+                        </div>
+                        <div class="meta-item">
+                            <span>Pages:</span>
+                            <strong id="modalPages">320</strong>
+                        </div>
+                        <div class="meta-item">
+                            <span>Language:</span>
+                            <strong id="modalLanguage">English</strong>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn btn-borrow" onclick="borrowBook()">
+                            <i class="fas fa-plus"></i> Borrow Book
+                        </button>
+                        <button class="btn btn-wishlist" onclick="addToWishlist()">
+                            <i class="fas fa-heart"></i> Add to Wishlist
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+    <script>
+        // Initial server-rendered books seed for faster first paint
+        window.__INITIAL_BOOKS__ = {{ (initial_books or []) | tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='js/library.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/library-api.js') }}"></script>
+</body>
+</html>

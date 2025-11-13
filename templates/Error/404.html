@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Digital Library</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Error Pages CSS -->
+    <link rel="stylesheet" href="/static/css/error-pages.css">
+</head>
+<body>
+    <!-- Particles Container -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <!-- Main Content -->
+    <div class="error-container">
+        <div class="error-wrapper">
+            <!-- Error Code with Animation -->
+            <div class="error-code-container">
+                <h1 class="error-code" data-code="404">404</h1>
+                <div class="error-code-shadow">404</div>
+            </div>
+
+            <!-- Error Message -->
+            <div class="error-content">
+                <h2 class="error-title">Page Not Found</h2>
+                <p class="error-message">
+                    Oops! The page you're looking for has gone to the digital library archives.
+                    It might have been moved, deleted, or never existed.
+                </p>
+
+                <!-- Error Icon -->
+                <div class="error-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+
+                <!-- Suggestions -->
+                <div class="suggestions">
+                    <p class="suggestion-label">What you can do:</p>
+                    <ul class="suggestion-list">
+                        <li><i class="fas fa-home"></i> Go back to the homepage</li>
+                        <li><i class="fas fa-arrow-left"></i> Return to the previous page</li>
+                        <li><i class="fas fa-search"></i> Use the search function</li>
+                        <li><i class="fas fa-envelope"></i> Contact our support team</li>
+                    </ul>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="error-actions">
+                    <a href="/static/index.html" class="btn btn-primary">
+                        <i class="fas fa-home"></i> Go to Homepage
+                    </a>
+                    <a href="javascript:history.back()" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Go Back
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+            <div class="float-book"></div>
+            <div class="float-circle"></div>
+            <div class="float-square"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/error-pages.js"></script>
+</body>
+</html>

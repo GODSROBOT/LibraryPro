@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Admin Login CSS -->
+    <link rel="stylesheet" href="/static/css/admin-login.css">
+</head>
+<body>
+    <!-- Security Watermark -->
+    <div class="security-watermark">
+        <i class="fas fa-shield-alt"></i>
+    </div>
+
+    <!-- Admin Login Wrapper -->
+    <div class="admin-login-wrapper"> 
+        <div class="admin-login-container">
+            <!-- Header -->
+            <div class="admin-header">
+                <div class="admin-logo">
+                    <i class="fas fa-sign-in-alt"></i>
+                </div>
+                <h1>Admin Login</h1>
+                <p>Secure access to administration panel</p>
+            </div>
+
+            <!-- Login Tabs -->
+            <div class="login-tabs">
+                <button class="tab-btn active" data-tab="username-tab">
+                    <i class="fas fa-user"></i> Username/Code
+                </button>
+                <button class="tab-btn" data-tab="email-tab">
+                    <i class="fas fa-envelope"></i> Email
+                </button>
+            </div>
+
+            <!-- Info Box -->
+            <div class="admin-info">
+                <i class="fas fa-info-circle"></i>
+                <span>Login with either your username, admin code, or email</span>
+            </div>
+
+            <!-- Login Form -->
+            <form class="admin-form" id="loginForm">
+                <!-- Tab 1: Username/Admin Code -->
+                <div class="tab-content active" id="username-tab">
+                    <div class="form-group">
+                        <label for="usernameOrCode">
+                            <i class="fas fa-user"></i> Username / Admin Code
+                        </label>
+                        <input 
+                            type="text" 
+                            id="usernameOrCode" 
+                            class="admin-input" 
+                            placeholder="Enter your username or admin code"
+                        >
+                        <small class="input-help">
+                            <i class="fas fa-info-circle"></i> Use your username or admin code
+                        </small>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Email -->
+                <div class="tab-content" id="email-tab">
+                    <div class="form-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i> Admin Email
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            class="admin-input" 
+                            placeholder="Enter your admin email"
+                        >
+                        <small class="input-help">
+                            <i class="fas fa-info-circle"></i> Use your registered admin email
+                        </small>
+                    </div>
+                </div>
+
+                <!-- Password (Common for both) -->
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i> Password
+                    </label>
+                    <div class="input-wrapper password-field">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            class="admin-input" 
+                            placeholder="Enter your password"
+                            required
+                        >
+                        <button type="button" class="toggle-password">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="form-footer">
+                    <div class="form-check">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="btn-admin-login">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+
+                <!-- Error Message -->
+                <div class="error-message" id="errorMessage" style="display: none;">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span id="errorText"></span>
+                </div>
+            </form>
+
+            <!-- Note: Admin signup disabled for security -->
+            <div class="form-divider">
+                <span>Admin accounts are managed by the system administrator</span>
+            </div>
+            <div style="text-align:center; color:#6b7280; margin-top:10px;">
+                To create an admin account, run the server-side script <code>scripts/create_admin.py</code> or contact the system administrator.
+            </div>
+
+            <!-- Footer -->
+            <div class="admin-footer">
+                <p>
+                    <i class="fas fa-lock"></i> 
+                    This is a secure admin area. 
+                    <a href="/static/index.html" class="text-link">Back to Home</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Security Badge -->
+        <div class="security-badge">
+            <i class="fas fa-shield-alt"></i>
+            <span>Secure</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/admin-login.js"></script>
+</body>
+</html>
